@@ -29,13 +29,13 @@ class CardYoutuber extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text('SEE CHANNEL'),
+                    Text('SEE CHANNEL', style: TextStyle(fontSize: 12)),
                     Container(
                       height: 20,
                       width: 1,
                       color: Theme.of(context).scaffoldBackgroundColor,
                     ),
-                    Text('UNFOLLOW'),
+                    Text('UNFOLLOW', style: TextStyle(fontSize: 12)),
                   ],
                 ),
                 // color: Colors.white,

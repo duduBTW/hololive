@@ -9,6 +9,9 @@ class HomeScreen extends StatelessWidget {
       case 1:
         Navigator.of(context).pushNamed('/translators');
         break;
+      case 2:
+        Navigator.of(context).pushNamed('/schedules');
+        break;
       // default:
     }
   }

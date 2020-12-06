@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hololive/views/HomeScreen.dart';
+import 'package:hololive/views/ScheduleScreen.dart';
 import 'package:hololive/views/TalentItemScreen.dart';
 import 'package:hololive/views/TalentsScreen.dart';
 import 'package:hololive/views/TranslatorScreen.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/talents': (ctx) => TalentsScreen(),
         '/talent': (ctx) => TalentItemScreen(),
-        '/translators': (ctx) => TranslatorsScreen()
+        '/translators': (ctx) => TranslatorsScreen(),
+        '/schedules': (ctx) => ScheduleScreen()
       },
     );
   }
