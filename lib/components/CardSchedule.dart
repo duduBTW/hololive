@@ -20,7 +20,7 @@ class CardSchedule extends StatelessWidget {
         decoration: BoxDecoration(
             border: Border.all(color: Colors.white),
             borderRadius: BorderRadius.circular(10)),
-        margin: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 6),
+        margin: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
         // color: Colors.red,
         height: 130,
         width: double.infinity,
@@ -74,8 +74,8 @@ class CardSchedule extends StatelessWidget {
             ),
             //TEXT
             Positioned(
-              left: 80,
-              bottom: 70,
+              left: 76,
+              bottom: 73,
               child: Container(
                 child: Text(
                   schedule.talent.name.split(" ")[0],
@@ -90,7 +90,7 @@ class CardSchedule extends StatelessWidget {
             //Picture
             Positioned(
               right: 15,
-              bottom: 20,
+              bottom: 25,
               child: Container(
                 decoration: BoxDecoration(
                   boxShadow: [
@@ -104,7 +104,7 @@ class CardSchedule extends StatelessWidget {
                 ),
                 child: Image.network(
                   schedule.thumb,
-                  width: 160,
+                  width: 150,
                 ),
               ),
             ),

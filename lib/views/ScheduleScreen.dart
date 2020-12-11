@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hololive/components/CardSchedule.dart';
+import 'package:hololive/components/ScheduleHeader.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 
 class ScheduleScreen extends StatelessWidget {
@@ -12,126 +13,83 @@ class ScheduleScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                width: double.infinity,
-                height: 150,
-                color: Colors.red,
-                child: Text("aa"),
-              ),
-              Column(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    child: Row(
-                      children: [
-                        Expanded(
-                            child: StickyHeader(
-                          header: Container(
-                            height: 50.0,
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                            padding: EdgeInsets.symmetric(horizontal: 20.0),
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              '06/12/2020',
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: 2),
-                            ),
-                          ),
-                          content: Column(
-                            children: [
-                              CardSchedule(),
-                              CardSchedule(),
-                            ],
-                          ),
-                        ))
-                      ],
+              ScheduleHeader(),
+              IntrinsicHeight(
+                child: Row(
+                  children: [
+                    Container(
+                      width: 15,
+                      // flex: 1,
+                      child: Container(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 0, horizontal: 7),
+                        // height: MediaQuery.of(context).size.height,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    child: Row(
-                      children: [
-                        Expanded(
-                            child: StickyHeader(
-                          header: Container(
-                            height: 50.0,
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                            padding: EdgeInsets.symmetric(horizontal: 20.0),
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              '07/12/2020',
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: 2),
-                            ),
-                          ),
-                          content: Column(
-                            children: [
-                              CardSchedule(),
-                              CardSchedule(),
-                              CardSchedule(),
-                              CardSchedule(),
-                            ],
-                          ),
-                        ))
-                      ],
+                    Expanded(
+                      flex: 20,
+                      child: Column(
+                        children: [
+                          Container(
+                              width: double.infinity,
+                              child: Expanded(
+                                  child: StickyHeader(
+                                header: Container(
+                                  height: 40.0,
+                                  color: Color(0xFFF07222D),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 15.0),
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    '06/12/2020',
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 2),
+                                  ),
+                                ),
+                                content: Column(
+                                  children: [
+                                    CardSchedule(),
+                                    CardSchedule(),
+                                  ],
+                                ),
+                              ))),
+                          Container(
+                              width: double.infinity,
+                              child: Expanded(
+                                  child: StickyHeader(
+                                header: Container(
+                                  height: 40.0,
+                                  color: Color(0xFFF07222D),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 15.0),
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    '07/12/2020',
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 2),
+                                  ),
+                                ),
+                                content: Column(
+                                  children: [
+                                    CardSchedule(),
+                                    CardSchedule(),
+                                    CardSchedule(),
+                                    CardSchedule(),
+                                  ],
+                                ),
+                              ))),
+                        ],
+                      ),
                     ),
-                  ),
-                  // Container(
-                  //   width: double.infinity,
-                  //   child: Row(
-                  //     children: [
-                  //       Container(
-                  //         height: MediaQuery.of(context).size.height,
-                  //         margin: EdgeInsets.all(30),
-                  //         width: 1,
-                  //         color: Colors.white,
-                  //       ),
-                  //       Expanded(
-                  //           child: StickyHeader(
-                  //         header: Container(
-                  //           height: 50.0,
-                  //           color: Theme.of(context).colorScheme.secondary,
-                  //           padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  //           alignment: Alignment.centerLeft,
-                  //           child: Text(
-                  //             '07/12/2020',
-                  //             style: const TextStyle(
-                  //                 color: Colors.white,
-                  //                 fontSize: 16,
-                  //                 fontWeight: FontWeight.w500,
-                  //                 letterSpacing: 2),
-                  //           ),
-                  //         ),
-                  //         content: Column(
-                  //           children: [
-                  //             Container(
-                  //               margin: EdgeInsets.only(top: 30, right: 20),
-                  //               height: 200,
-                  //               color: Colors.white,
-                  //             ),
-                  //             Container(
-                  //               margin: EdgeInsets.only(top: 30, right: 20),
-                  //               height: 200,
-                  //               color: Colors.white,
-                  //             ),
-                  //             Container(
-                  //               margin: EdgeInsets.only(top: 30, right: 20),
-                  //               height: 200,
-                  //               color: Colors.white,
-                  //             ),
-                  //           ],
-                  //         ),
-                  //       ))
-                  //     ],
-                  //   ),
-                  // ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),

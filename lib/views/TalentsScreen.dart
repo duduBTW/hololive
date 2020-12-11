@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:hololive/model/Talents.dart';
 
 class TalentsScreen extends StatelessWidget {
+  void _redireceToTalent(BuildContext ctx, Talents talent) =>
+      Navigator.of(ctx).pushNamed('/talent', arguments: talent);
+
   final List<Talents> talentList = [
     Talents(
         color: Color(0xFF50413D),
+        colorSecond: Color(0xFFD6A99A),
         name: "Amelia Watson",
         image:
             "https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1000,w_500,f_auto,q_auto/1369026/112336_876930.jpeg"),
@@ -29,9 +33,6 @@ class TalentsScreen extends StatelessWidget {
         image:
             "https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1000,w_500,f_auto,q_auto/1369026/603788_561144.jpeg"),
   ];
-
-  void _redireceToTalent(BuildContext ctx, Talents talent) =>
-      Navigator.of(ctx).pushNamed('/talent', arguments: talent);
 
   @override
   Widget build(BuildContext context) {

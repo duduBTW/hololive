@@ -1,5 +1,6 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:hololive/components/TalentHeader.dart';
 import 'package:hololive/model/Talents.dart';
 
@@ -9,6 +10,8 @@ class TalentItemScreen extends StatelessWidget {
   //     name: 'Mori Calliope',
   //     image:
   //         "https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1000,w_500,f_auto,q_auto/1369026/603788_561144.jpeg");
+
+  final List<String> buttonList = ["Follow", "Twitter", "Youtube", "Twitch"];
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +32,6 @@ class TalentItemScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 40,
-              ),
               TalentHeader(
                 talent: talent,
               ),
@@ -39,6 +39,25 @@ class TalentItemScreen extends StatelessWidget {
               //   onPressed: () {},
               //   icon: Icon(Icons.expand_more, size: 34, color: Colors.white),
               // ),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: double.infinity,
+                height: 100,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: buttonList.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: EdgeInsets.symmetric(horizontal: 5),
+                        width: 100,
+                        child: Card(
+                          child: Center(child: Text(buttonList[index])),
+                        ),
+                      );
+                    }),
+              ),
               SizedBox(
                 height: 15,
               ),

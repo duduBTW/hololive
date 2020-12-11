@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hololive/views/HomeScreen.dart';
+import 'package:hololive/views/ScheduleItemScreen.dart';
 import 'package:hololive/views/ScheduleScreen.dart';
 import 'package:hololive/views/TalentItemScreen.dart';
 import 'package:hololive/views/TalentsScreen.dart';
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         '/talents': (ctx) => TalentsScreen(),
         '/talent': (ctx) => TalentItemScreen(),
         '/translators': (ctx) => TranslatorsScreen(),
-        '/schedules': (ctx) => ScheduleScreen()
+        '/schedules': (ctx) => ScheduleScreen(),
+        '/schedulesItem': (ctx) => ScheduleItemSreen()
       },
     );
   }
