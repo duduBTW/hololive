@@ -58,11 +58,11 @@ class ScheduleHeader extends StatelessWidget {
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(25.0)),
                     label: Text(
-                      "Region",
+                      "Filter",
                       style: const TextStyle(color: Colors.white),
                     ),
                     icon: Icon(
-                      Icons.location_on,
+                      Icons.filter_list,
                       color: Colors.white,
                     ),
                     onPressed: () => {}
