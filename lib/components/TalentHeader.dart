@@ -8,13 +8,6 @@ class TalentHeader extends StatelessWidget {
   const TalentHeader({Key key, this.talent}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    buildItem(String label) {
-      return Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Text(label),
-      );
-    }
-
     buildList() {
       return Container(
         margin: EdgeInsets.symmetric(horizontal: 20),
@@ -134,7 +127,7 @@ class TalentHeader extends StatelessWidget {
 
     return ExpandableNotifier(
         child: Container(
-      padding: EdgeInsets.symmetric(vertical: 30),
+      padding: EdgeInsets.symmetric(vertical: 20),
       color: Theme.of(context).colorScheme.secondary,
       // padding: const EdgeInsets.all(10),
       child: ScrollOnExpand(
@@ -193,9 +186,12 @@ class TalentHeader extends StatelessWidget {
                                 height: 110,
                               )),
                         ),
-                        Image.network(
-                          talent.image,
-                          width: 130,
+                        Hero(
+                          tag: talent.name,
+                          child: Image.network(
+                            talent.image,
+                            width: 130,
+                          ),
                         ),
                       ],
                     ),
@@ -211,7 +207,7 @@ class TalentHeader extends StatelessWidget {
                               fontSize: 28,
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
-                              letterSpacing: 2),
+                              letterSpacing: 3),
                         ),
                         SizedBox(
                           height: 10,
@@ -223,12 +219,15 @@ class TalentHeader extends StatelessWidget {
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
                               color: Colors.white,
-                              letterSpacing: 2),
+                              letterSpacing: 1),
                         ),
                       ],
                     ),
                   ),
                 ],
+              ),
+              SizedBox(
+                height: 10,
               ),
               ExpandablePanel(
                 theme: const ExpandableThemeData(

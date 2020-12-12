@@ -11,70 +11,102 @@ class TalentsScreen extends StatelessWidget {
         colorSecond: Color(0xFFD6A99A),
         name: "Amelia Watson",
         image:
-            "https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1000,w_500,f_auto,q_auto/1369026/112336_876930.jpeg"),
+            'https://firebasestorage.googleapis.com/v0/b/hololive-6a02e.appspot.com/o/ame.jpg?alt=media&token=2616ab4c-b337-4c30-b77b-7a2dd1f5605d'),
     Talents(
         color: Color(0xFF292031),
         name: "Ninomae Ina'nis",
         image:
-            "https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1000,w_500,f_auto,q_auto/1369026/712914_145875.jpeg"),
+            "https://firebasestorage.googleapis.com/v0/b/hololive-6a02e.appspot.com/o/ina.jpeg?alt=media&token=72baaaba-1ab3-468f-9cbe-9886a1017c93"),
     Talents(
         color: Color(0xFF234D69),
         name: 'Gawr Gura',
         image:
-            "https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1000,w_500,f_auto,q_auto/1369026/251247_457554.jpeg"),
+            "https://firebasestorage.googleapis.com/v0/b/hololive-6a02e.appspot.com/o/gura.jpeg?alt=media&token=0e10ba8d-214c-475f-b42e-07a015b66da9"),
     Talents(
         color: Color(0xFF8B3418),
         name: 'Takanashi Kiara',
         image:
-            "https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1000,w_500,f_auto,q_auto/1369026/207430_877763.jpeg"),
+            "https://firebasestorage.googleapis.com/v0/b/hololive-6a02e.appspot.com/o/kiara.jpeg?alt=media&token=c20cc81b-de00-41f3-99fa-712db5e7b0b0"),
     Talents(
         color: Color(0xFF5A263B),
         name: 'Mori Calliope',
         image:
-            "https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1000,w_500,f_auto,q_auto/1369026/603788_561144.jpeg"),
+            "https://firebasestorage.googleapis.com/v0/b/hololive-6a02e.appspot.com/o/calli.jpeg?alt=media&token=8e738758-fc76-426d-a961-967e5f74a55e"),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Talents'),
-      ),
-      body: Container(
-        margin: EdgeInsets.only(top: 20),
-        child: GridView.count(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.0,
-            mainAxisSpacing: 10,
-            children: talentList
-                .map((item) => GestureDetector(
-                      onTap: () => _redireceToTalent(context, item),
-                      child: Container(
-                        child: Column(
-                          children: [
-                            if (item.image != null && item.image.isNotEmpty)
-                              Image.network(
-                                item.image,
-                                height: 120,
-                              ),
-                            Container(
-                              color: item.color,
-                              width: double.infinity,
-                              padding: EdgeInsets.symmetric(vertical: 10),
-                              child: Text(
-                                item.name,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ))
-                .toList()),
-      ),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text('Talents'),
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(icon: Icon(Icons.directions_bike)),
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: <Widget>[
+              Container(
+                child: Center(
+                  child: Text('Tab 1'),
+                ),
+              ),
+              Container(
+                child: Center(
+                  child: Text('Tab 2'),
+                ),
+              ),
+              Container(
+                child: Center(
+                  child: Text('Tab 3'),
+                ),
+              ),
+            ],
+          )),
     );
+
+    // Container(
+    //   margin: EdgeInsets.only(top: 20),
+    //   child: GridView.count(
+    //       crossAxisCount: 2,
+    //       crossAxisSpacing: 15.0,
+    //       mainAxisSpacing: 10,
+    //       children: talentList
+    //           .map((item) => GestureDetector(
+    //                 onTap: () => _redireceToTalent(context, item),
+    //                 child: Container(
+    //                   child: Column(
+    //                     children: [
+    //                       if (item.image != null && item.image.isNotEmpty)
+    //                         Hero(
+    //                           tag: item.name,
+    //                           child: Image.network(
+    //                             item.image,
+    //                             height: 120,
+    //                           ),
+    //                         ),
+    //                       Container(
+    //                         color: item.color,
+    //                         width: double.infinity,
+    //                         padding: EdgeInsets.symmetric(vertical: 10),
+    //                         child: Text(
+    //                           item.name,
+    //                           textAlign: TextAlign.center,
+    //                           style: TextStyle(
+    //                               color: Colors.white,
+    //                               fontWeight: FontWeight.w500),
+    //                         ),
+    //                       ),
+    //                     ],
+    //                   ),
+    //                 ),
+    //               ))
+    //           .toList()),
+    // ),);
   }
 }

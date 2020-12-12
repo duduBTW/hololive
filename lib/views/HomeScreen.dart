@@ -25,6 +25,8 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         onTap: (page) => _redirectItem(context, page),
         backgroundColor: Theme.of(context).backgroundColor,
+        elevation: 0,
+        unselectedItemColor: Colors.grey,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(

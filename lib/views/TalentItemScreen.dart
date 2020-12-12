@@ -19,12 +19,14 @@ class TalentItemScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        backgroundColor: talent.color,
+        // backgroundColor: talent.color,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           talent.name,
           style: TextStyle(color: Colors.white),
         ),
+        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -39,11 +41,12 @@ class TalentItemScreen extends StatelessWidget {
               //   onPressed: () {},
               //   icon: Icon(Icons.expand_more, size: 34, color: Colors.white),
               // ),
-              SizedBox(
-                height: 15,
-              ),
+              // SizedBox(
+              //   height: 15,
+              // ),
               Container(
                 width: double.infinity,
+                color: Theme.of(context).colorScheme.secondary,
                 height: 100,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -53,7 +56,13 @@ class TalentItemScreen extends StatelessWidget {
                         margin: EdgeInsets.symmetric(horizontal: 5),
                         width: 100,
                         child: Card(
-                          child: Center(child: Text(buttonList[index])),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(Icons.transit_enterexit),
+                              Text(buttonList[index]),
+                            ],
+                          ),
                         ),
                       );
                     }),
