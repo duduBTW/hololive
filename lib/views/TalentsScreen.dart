@@ -37,23 +37,81 @@ class TalentsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 5,
       child: Scaffold(
           appBar: AppBar(
             title: Text('Talents'),
             bottom: TabBar(
+              isScrollable: true,
               tabs: [
-                Tab(icon: Icon(Icons.directions_car)),
-                Tab(icon: Icon(Icons.directions_transit)),
-                Tab(icon: Icon(Icons.directions_bike)),
+                Tab(
+                  text: "All",
+                ),
+                Tab(
+                  text: "Hololive",
+                ),
+                Tab(
+                  text: "Hololive EN",
+                ),
+                Tab(
+                  text: "Hololive Music",
+                ),
+                Tab(
+                  text: "Hololive Indonesia",
+                ),
               ],
             ),
           ),
           body: TabBarView(
             children: <Widget>[
               Container(
+                margin: EdgeInsets.only(top: 20),
+                child: GridView.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 15.0,
+                    mainAxisSpacing: 15,
+                    children: talentList
+                        .map((item) => GestureDetector(
+                              onTap: () => _redireceToTalent(context, item),
+                              child: Container(
+                                child: Column(
+                                  children: [
+                                    if (item.image != null &&
+                                        item.image.isNotEmpty)
+                                      Hero(
+                                        tag: item.name,
+                                        child: Image.network(
+                                          item.image,
+                                          height: 120,
+                                        ),
+                                      ),
+                                    Container(
+                                      color: item.color,
+                                      width: double.infinity,
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 10),
+                                      child: Text(
+                                        item.name,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ))
+                        .toList()),
+              ),
+              Container(
                 child: Center(
-                  child: Text('Tab 1'),
+                  child: Text('Tab 2'),
+                ),
+              ),
+              Container(
+                child: Center(
+                  child: Text('Tab 3'),
                 ),
               ),
               Container(
@@ -107,6 +165,7 @@ class TalentsScreen extends StatelessWidget {
     //                 ),
     //               ))
     //           .toList()),
-    // ),);
+    // ),
+    //);
   }
 }
