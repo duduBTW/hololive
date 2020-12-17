@@ -92,16 +92,16 @@ class CardSchedule extends StatelessWidget {
               right: 15,
               bottom: 25,
               child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
-                      spreadRadius: 0,
-                      blurRadius: 4,
-                      offset: Offset(4, 4), // changes position of shadow
-                    ),
-                  ],
-                ),
+                // decoration: BoxDecoration(
+                //   boxShadow: [
+                //     BoxShadow(
+                //       color: Colors.black.withOpacity(0.5),
+                //       spreadRadius: 0,
+                //       blurRadius: 4,
+                //       offset: Offset(4, 4), // changes position of shadow
+                //     ),
+                //   ],
+                // ),
                 child: Image.network(
                   schedule.thumb,
                   width: 150,

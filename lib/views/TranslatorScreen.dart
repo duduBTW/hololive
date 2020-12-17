@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:hololive/components/CardYoutuber.dart';
 import 'package:hololive/model/Translator.dart';
 
-class TranslatorsScreen extends StatelessWidget {
+class TranslatorsScreen extends StatefulWidget {
+  @override
+  _TranslatorsScreenState createState() => _TranslatorsScreenState();
+}
+
+class _TranslatorsScreenState extends State<TranslatorsScreen>
+    with AutomaticKeepAliveClientMixin {
   final List<Translator> translatorList = [
     Translator(
         name: "SodaFunk Ch.",
@@ -32,8 +38,11 @@ class TranslatorsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("Translators"),
       ),
       body: ListView.builder(
@@ -43,4 +52,8 @@ class TranslatorsScreen extends StatelessWidget {
               )),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

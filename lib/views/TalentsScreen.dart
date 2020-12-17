@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hololive/model/Talents.dart';
-import 'package:hololive/views/TalentItemScreen.dart';
+import 'package:hololive/views/TalentItemNew.dart';
 
-class TalentsScreen extends StatelessWidget {
+class TalentsScreen extends StatefulWidget {
+  @override
+  _TalentsScreenState createState() => _TalentsScreenState();
+}
+
+class _TalentsScreenState extends State<TalentsScreen>
+    with AutomaticKeepAliveClientMixin {
   void _redireceToTalent(BuildContext ctx, Talents talent) =>
       Navigator.of(ctx).push(MaterialPageRoute(
           builder: (context) => TalentItemScreen(talent: talent)));
@@ -43,10 +49,13 @@ class TalentsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return DefaultTabController(
       length: 5,
       child: Scaffold(
           appBar: AppBar(
+            centerTitle: true,
             title: Text('Talents'),
             bottom: TabBar(
               isScrollable: true,
@@ -175,4 +184,8 @@ class TalentsScreen extends StatelessWidget {
     // ),
     //);
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

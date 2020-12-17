@@ -28,7 +28,7 @@ class YoutubeItems with ChangeNotifier {
       loading = true;
 
       http
-          .get("http://dcb4c9c8c4cb.ngrok.io/youtube?channelId=$channelId")
+          .get("http://127.0.0.1/youtube?channelId=$channelId")
           .then((response) {
         var content = parseResponse<YoutubeModel>(response);
         // content.insert(0, TypesModel("Nenhum"));
