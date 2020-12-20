@@ -33,7 +33,7 @@ class TalentItemScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PaginatedTalent(channelId: talent.channelId, launchURL: _launchURL),
+      body: PaginatedTalent(talent: talent, launchURL: _launchURL),
     );
   }
 }

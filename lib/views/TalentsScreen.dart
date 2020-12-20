@@ -18,6 +18,8 @@ class _TalentsScreenState extends State<TalentsScreen>
         color: Color(0xFF50413D),
         colorSecond: Color(0xFFD6A99A),
         name: "Amelia Watson",
+        banner:
+            "https://yt3.ggpht.com/-7bdk5QyCEcy8DcCAwxFqjA3VX1WnMJKFg6mhVCqnL6z4S0boWQ1JkIgyCGXN8amRnYdQNkn",
         image:
             'https://firebasestorage.googleapis.com/v0/b/hololive-6a02e.appspot.com/o/ame.jpg?alt=media&token=2616ab4c-b337-4c30-b77b-7a2dd1f5605d',
         channelId: "UCyl1z3jo3XHR1riLFKG5UAg"),
@@ -56,7 +58,10 @@ class _TalentsScreenState extends State<TalentsScreen>
       child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            title: Text('Talents'),
+            title: Image.network(
+              "https://pbs.twimg.com/profile_images/1198438854841094144/y35Fe_Jj.jpg",
+              height: 35,
+            ),
             bottom: TabBar(
               isScrollable: true,
               tabs: [

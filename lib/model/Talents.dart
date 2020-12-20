@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Talents {
   final String name;
+  final String banner;
   final String image;
   final Color color;
   final Color colorSecond;
@@ -9,6 +10,7 @@ class Talents {
 
   Talents(
       {this.image,
+      this.banner,
       @required this.name,
       @required this.color,
       this.colorSecond,
