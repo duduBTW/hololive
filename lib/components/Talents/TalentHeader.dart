@@ -3,6 +3,15 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hololive/model/Talents.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
+class SocialInfoModel {
+  final Color color;
+  final String name;
+  final String link;
+
+  SocialInfoModel({this.color, @required this.name, @required this.link});
+}
 
 class NetworkingPageHeader implements SliverPersistentHeaderDelegate {
   NetworkingPageHeader({
@@ -13,6 +22,34 @@ class NetworkingPageHeader implements SliverPersistentHeaderDelegate {
   final Talents talent;
   final double minExtent;
   final double maxExtent;
+
+  List<SocialInfoModel> social = [
+    SocialInfoModel(link: "teste", name: "Youtube", color: Color(0xff4E0000)),
+    SocialInfoModel(link: "teste", name: "Teitter", color: Color(0xff1F5471)),
+  ];
+
+  void _socialModal(BuildContext ctx) {
+    showBarModalBottomSheet(
+      context: ctx,
+      expand: false,
+      builder: (
+        context,
+      ) =>
+          Container(
+        height: 115,
+        child: ListView(
+          children: [
+            ...social
+                .map((socItem) => ListTile(
+                      title: Text(socItem.name),
+                      trailing: Icon(Icons.navigate_next),
+                    ))
+                .toList()
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(
@@ -98,44 +135,53 @@ class NetworkingPageHeader implements SliverPersistentHeaderDelegate {
             ),
           ),
         ),
-        if (shrinkOffset < 120)
-          Expanded(
-            flex: 2,
-            child: SingleChildScrollView(
-              // color: Colors.green,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 45,
+        Expanded(
+          flex: 2,
+          child: shrinkOffset < 120
+              ? SingleChildScrollView(
+                  // color: Colors.green,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 45,
+                      ),
+                      ...social
+                          .map(
+                            (socItem) => Container(
+                              child: Text(
+                                socItem.name,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    letterSpacing: 1,
+                                    fontSize: 12),
+                              ),
+                              color: socItem.color,
+                              width: double.infinity,
+                              margin: EdgeInsets.only(right: 10, bottom: 10),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 12),
+                            ),
+                          )
+                          .toList()
+                    ],
                   ),
-                  Container(
-                    child: Text(
-                      "Youtube",
-                      style: TextStyle(
-                          color: Colors.white, letterSpacing: 1, fontSize: 10),
+                )
+              : Container(
+                  height: double.infinity,
+                  padding: EdgeInsets.only(bottom: 10),
+                  color: talent.color,
+                  alignment: Alignment.bottomRight,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.more_vert,
+                      color: Colors.white,
                     ),
-                    color: Color(0xff4E0000),
-                    width: double.infinity,
-                    margin: EdgeInsets.only(right: 10, bottom: 10),
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    onPressed: () => _socialModal(context),
                   ),
-                  Container(
-                    child: Text(
-                      "Twitter",
-                      style: TextStyle(
-                          color: Colors.white, letterSpacing: 1, fontSize: 10),
-                    ),
-                    color: Color(0xff1F5471),
-                    width: double.infinity,
-                    margin: EdgeInsets.only(right: 10, bottom: 10),
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  ),
-                ],
-              ),
-            ),
-          ),
+                ),
+        ),
       ],
     ));
   }

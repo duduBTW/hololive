@@ -3,6 +3,8 @@ import 'package:hololive/views/ScheduleScreen.dart';
 import 'package:hololive/views/TalentsScreen.dart';
 import 'package:hololive/views/TranslatorScreen.dart';
 
+import 'MainScreen.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -12,33 +14,18 @@ class _HomeScreenState extends State<HomeScreen> {
   PageController _pageController = PageController();
   int _currentIndex = 0;
   final List<Widget> _childern = [
+    MainScreen(),
     TalentsScreen(),
     TranslatorsScreen(),
     ScheduleScreen(),
   ];
 
-  void _onPageChanged(int index) {
-    // _pageController.jumpToPage(index);
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+  void _onPageChanged(int index) => setState(() {
+        _currentIndex = index;
+      });
 
-  void _redirectItem(BuildContext context, int page) {
-    _pageController.jumpToPage(page);
-    // switch (page) {
-    //   case 0:
-    //     Navigator.of(context).pushNamed('/talents');
-    //     break;
-    //   case 1:
-    //     Navigator.of(context).pushNamed('/translators');
-    //     break;
-    //   case 2:
-    //     Navigator.of(context).pushNamed('/schedules');
-    //     break;
-    //   // default:
-    // }
-  }
+  void _redirectItem(BuildContext context, int page) =>
+      _pageController.jumpToPage(page);
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
           //       Icons.home,
           //     ),
           //     title: Text('Home')),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+              ),
+              title: Text('Home')),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.group,

@@ -271,78 +271,6 @@ class _PaginatedTalentState extends State<PaginatedTalent> {
                   maxExtent: 240.0,
                 ),
               ),
-              // SliverAppBar(
-              //     floating: true,
-              //     pinned: true,
-              //     snap: false,
-              //     expandedHeight: 220.0,
-              //     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              //     flexibleSpace: FlexibleSpaceBar(
-              //       title: Text(widget.talent.name),
-              //   background: Container(
-              //     margin: EdgeInsets.only(top: 40),
-              //     alignment: Alignment.topCenter,
-              //     // color: Colors.blue,
-              //     height: 130,
-              //     width: 130,
-              //     // color: widget.talent.color,
-              //     child: Stack(
-              //       overflow: Overflow.visible,
-              //       children: [
-              //         Positioned(
-              //           // top: 0,
-              //           // right: 0,
-              //           bottom: 6,
-              //           left: 6,
-              //           child: Container(
-              //             color: widget.talent.color,
-              //             height: 130,
-              //             width: 130,
-              //             // child: Image.network(
-              //             //   ,
-              //             //   fit: BoxFit.fitWidth,
-              //             // ),
-              //           ),
-              //         ),
-              //         Positioned(
-              //           // top: 0,
-              //           // right: 0,
-              //           bottom: -6,
-              //           left: -6,
-              //           child: Container(
-              //             color: widget.talent.colorSecond,
-              //             height: 130,
-              //             width: 120,
-              //             // child: Image.network(
-              //             //   ,
-              //             //   fit: BoxFit.fitWidth,
-              //             // ),
-              //           ),
-              //         ),
-              //         Container(
-              //           decoration: BoxDecoration(
-              //               image: DecorationImage(
-              //             image: NetworkImage(widget.talent.image),
-              //             fit: BoxFit.cover,
-              //           )),
-              //           height: 130,
-              //           width: 130,
-              //           // child: Image.network(
-              //           //   ,
-              //           //   fit: BoxFit.fitWidth,
-              //           // ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              //     actions: <Widget>[
-              //       IconButton(
-              //         icon: const Icon(Icons.add_circle),
-              //         tooltip: 'Add new entry',
-              //         onPressed: () {/* ... */},
-              //       ),
-              //     ]),
               SliverToBoxAdapter(
                 child: ExpandablePanel(
                   theme: const ExpandableThemeData(
@@ -376,16 +304,6 @@ class _PaginatedTalentState extends State<PaginatedTalent> {
                             flex: 1,
                             child: Container(),
                           ),
-
-                          // Expanded(
-                          //   child: Text(
-                          //     "Items",
-                          //     style: Theme.of(context)
-                          //         .textTheme
-                          //         .body2
-                          //         .copyWith(color: Colors.white),
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
@@ -393,41 +311,6 @@ class _PaginatedTalentState extends State<PaginatedTalent> {
                   expanded: buildList(),
                 ),
               ),
-              // SliverAppBar(
-              //     expandedHeight: 150.0,
-              //     flexibleSpace: const FlexibleSpaceBar(
-              //       title: Text('Available seats'),
-
-              //     ),
-              //     actions: <Widget>[
-              //       IconButton(
-              //         icon: const Icon(Icons.add_circle),
-              //         tooltip: 'Add new entry',
-              //         onPressed: () {/* ... */},
-              //       ),
-              //     ]),
-              // SliverList(
-              //     delegate: SliverChildListDelegate([
-              //   Container(
-              //     decoration: BoxDecoration(
-              //         gradient: LinearGradient(
-              //             begin: Alignment.topLeft,
-              //             end: Alignment.bottomRight,
-              //             colors: [
-              //           Theme.of(context).accentColor,
-              //           Theme.of(context).primaryColor,
-              //         ])),
-              //     height: 100,
-              //     child: Text(
-              //       "Escolha uma empresa",
-              //       style: TextStyle(
-              //           fontSize: 24,
-              //           color: Colors.white,
-              //           fontWeight: FontWeight.w500),
-              //     ),
-              //     alignment: Alignment(0.0, 0.0),
-              //   ),
-              // ]))
             ];
           },
           body: RefreshIndicator(
@@ -459,7 +342,7 @@ class _PaginatedTalentState extends State<PaginatedTalent> {
               ),
               // 4
               pagingController: _pagingController,
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.symmetric(vertical: 16),
               separatorBuilder: (context, index) => const SizedBox(
                 height: 16,
               ),
