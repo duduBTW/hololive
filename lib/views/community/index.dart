@@ -7,12 +7,12 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
-import '../model/YoutubeModel.dart';
-import '../components/Talents/TalentHeader.dart';
+import '../../model/YoutubeModel.dart';
+import '../../components/Talents/TalentHeader.dart';
 
-import '../components/GenericListItem.dart';
+import '../../components/GenericListItem.dart';
 
-class MainScreen extends StatelessWidget {
+class CommynityScreen extends StatelessWidget {
   void _openFilters(context) =>
       Navigator.of(context).pushNamed('/community/filters');
 
@@ -20,18 +20,14 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text("Community"),
         actions: [
           IconButton(
               icon: Icon(Icons.filter_list),
               onPressed: () => _openFilters(context))
         ],
-        centerTitle: true,
-        title: Image.network(
-          "https://pbs.twimg.com/profile_images/1198438854841094144/y35Fe_Jj.jpg",
-          height: 35,
-        ),
       ),
-      body: Center(child: PaginatedTalent()),
+      body: PaginatedTalent(),
     );
   }
 }
@@ -67,7 +63,7 @@ class _PaginatedTalentState extends State<PaginatedTalent>
 
   Future<void> _fetchPage(int pageKey) async {
     try {
-      var response = await http.get("http://localhost:5000/youtube/main");
+      var response = await http.get("http://localhost:5000/community");
 
       var jsonString = convert.utf8.decode(response.bodyBytes);
 

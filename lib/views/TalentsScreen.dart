@@ -56,31 +56,32 @@ class _TalentsScreenState extends State<TalentsScreen>
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            title: Image.network(
-              "https://pbs.twimg.com/profile_images/1198438854841094144/y35Fe_Jj.jpg",
-              height: 35,
-            ),
-            bottom: TabBar(
-              isScrollable: true,
-              tabs: [
-                Tab(
-                  text: "All",
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(kToolbarHeight),
+            child: SafeArea(
+              child: Ink(
+                color: Theme.of(context).primaryColor,
+                child: TabBar(
+                  isScrollable: true,
+                  tabs: [
+                    Tab(
+                      text: "All",
+                    ),
+                    Tab(
+                      text: "Hololive",
+                    ),
+                    Tab(
+                      text: "Hololive EN",
+                    ),
+                    Tab(
+                      text: "Hololive Music",
+                    ),
+                    Tab(
+                      text: "Hololive Indonesia",
+                    ),
+                  ],
                 ),
-                Tab(
-                  text: "Hololive",
-                ),
-                Tab(
-                  text: "Hololive EN",
-                ),
-                Tab(
-                  text: "Hololive Music",
-                ),
-                Tab(
-                  text: "Hololive Indonesia",
-                ),
-              ],
+              ),
             ),
           ),
           body: TabBarView(

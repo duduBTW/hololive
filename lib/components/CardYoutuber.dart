@@ -11,7 +11,7 @@ class CardYoutuber extends StatelessWidget {
         decoration: BoxDecoration(
             border: Border.all(color: Colors.white),
             borderRadius: BorderRadius.circular(10)),
-        margin: EdgeInsets.only(left: 20, right: 20, top: 28, bottom: 6),
+        margin: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 6),
         // color: Colors.red,
         height: 130,
         width: double.infinity,
@@ -27,15 +27,27 @@ class CardYoutuber extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.only(left: 100),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text('SEE CHANNEL', style: TextStyle(fontSize: 12)),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Container(
                       height: 20,
                       width: 1,
                       color: Theme.of(context).scaffoldBackgroundColor,
                     ),
-                    Text('UNFOLLOW', style: TextStyle(fontSize: 12)),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Icon(
+                      Icons.delete,
+                      color: Color(0xff820308),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
                   ],
                 ),
                 // color: Colors.white,

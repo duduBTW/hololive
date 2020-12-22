@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hololive/views/ScheduleScreen.dart';
 import 'package:hololive/views/TalentsScreen.dart';
 import 'package:hololive/views/TranslatorScreen.dart';
+import 'package:hololive/views/community/index.dart';
 
 import 'MainScreen.dart';
 
@@ -16,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _childern = [
     MainScreen(),
     TalentsScreen(),
-    TranslatorsScreen(),
+    CommynityScreen(),
     ScheduleScreen(),
   ];
 
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               title: Text('Talents')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.translate), title: Text('Translators')),
+              icon: Icon(Icons.comment), title: Text('Community')),
           BottomNavigationBarItem(
               icon: Icon(Icons.calendar_today), title: Text('Schedule')),
         ],

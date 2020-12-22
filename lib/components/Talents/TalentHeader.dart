@@ -42,7 +42,7 @@ class NetworkingPageHeader implements SliverPersistentHeaderDelegate {
             ...social
                 .map((socItem) => ListTile(
                       title: Text(socItem.name),
-                      trailing: Icon(Icons.navigate_next),
+                      trailing: Icon(Icons.navigate_next, color: socItem.color),
                     ))
                 .toList()
           ],

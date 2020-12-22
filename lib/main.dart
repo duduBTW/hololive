@@ -7,6 +7,7 @@ import 'package:hololive/views/ScheduleScreen.dart';
 import 'package:hololive/views/TalentItemScreen.dart';
 import 'package:hololive/views/TalentsScreen.dart';
 import 'package:hololive/views/TranslatorScreen.dart';
+import 'package:hololive/views/community/filters.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          primaryColor: Colors.white,
+          primaryColor: Color(0xffEFFBFF),
           accentColor: Color(0xff136380),
           backgroundColor: Color(0xFF0A3140),
           scaffoldBackgroundColor: Color(0xFF082A37),
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
           '/talent': (ctx) => TalentItemScreen(),
           '/translators': (ctx) => TranslatorsScreen(),
           '/schedules': (ctx) => ScheduleScreen(),
-          '/schedulesItem': (ctx) => ScheduleItemSreen()
+          '/schedulesItem': (ctx) => ScheduleItemSreen(),
+          '/community/filters': (ctx) => Filters()
         },
       ),
     );
