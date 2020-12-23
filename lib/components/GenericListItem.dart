@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hololive/model/ResultItem.dart';
 import 'package:hololive/model/YoutubeModel.dart';
 import 'package:intl/intl.dart';
 
 class GenericListItem extends StatelessWidget {
   final Function launchURL;
-  final Item itemYt;
+  final ReusltItem itemYt;
 
   const GenericListItem({Key key, this.launchURL, this.itemYt})
       : super(key: key);
@@ -12,7 +13,7 @@ class GenericListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: InkWell(
-        onTap: () => launchURL(itemYt.snippet.resourceId.videoId),
+        onTap: () => launchURL(itemYt.id),
         child: Ink(
           color: Theme.of(context).colorScheme.secondary,
           width: double.infinity,
@@ -20,18 +21,11 @@ class GenericListItem extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 15),
           child: Column(
             children: [
-              Image.network(
-                itemYt.snippet.thumbnails.medium.url,
-                alignment: Alignment(0, 0),
-              ),
-              SizedBox(
-                height: 20,
-              ),
               Container(
                 width: 320,
                 // alignment: Alignment(0.0, 0.0),
                 child: Text(
-                  itemYt.snippet.title,
+                  itemYt.title,
                   style: TextStyle(
                       color: Theme.of(context).primaryColor, fontSize: 18),
                 ),
@@ -43,12 +37,20 @@ class GenericListItem extends StatelessWidget {
                 width: 320,
                 // alignment: Alignment(0.0, 0.0),
                 child: Text(
-                  DateFormat('dd/MM/yyyy HH:mm')
-                      .format(itemYt.snippet.publishedAt),
+                  DateFormat('dd/MM/yyyy HH:mm').format(itemYt.date),
                   style: TextStyle(
                       color: Theme.of(context).primaryColor, fontSize: 12),
                 ),
               ),
+              if (itemYt.image.medium != null)
+                SizedBox(
+                  height: 20,
+                ),
+              if (itemYt.image.medium != null)
+                Image.network(
+                  itemYt.image.medium,
+                  alignment: Alignment(0, 0),
+                ),
             ],
           ),
         ),

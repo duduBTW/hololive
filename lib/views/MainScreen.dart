@@ -125,7 +125,10 @@ class _PaginatedTalentState extends State<PaginatedTalent>
           // shrinkWrap: true,
           builderDelegate: PagedChildBuilderDelegate<Item>(
             itemBuilder: (context, itemVid, index) =>
-                GenericListItem(itemYt: itemVid, launchURL: widget.launchURL),
+                // GenericListItem(itemYt: itemVid, launchURL: widget.launchURL),
+                Container(
+              child: Text("Teste"),
+            ),
             firstPageErrorIndicatorBuilder: (context) => Container(
               height: 100,
               width: 100,

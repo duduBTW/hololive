@@ -1,10 +1,12 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hololive/model/ResultItem.dart';
 import 'package:hololive/model/Talents.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:convert' as convert;
 
 import '../../model/YoutubeModel.dart';
@@ -15,6 +17,26 @@ import '../../components/GenericListItem.dart';
 class CommynityScreen extends StatelessWidget {
   void _openFilters(context) =>
       Navigator.of(context).pushNamed('/community/filters');
+
+  _launchURL(String id) async {
+    // if (Platform.isIOS) {
+    //   if (await canLaunch('youtube://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw')) {
+    //     await launch('youtube://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw', forceSafariVC: false);
+    //   } else {
+    //     if (await canLaunch('https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw')) {
+    //       await launch('https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw');
+    //     } else {
+    //       throw 'Could not launch https://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw';
+    //     }
+    //   }
+    // } else {
+    final url = 'https://www.reddit.com/r/Hololive/comments/$id';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +49,7 @@ class CommynityScreen extends StatelessWidget {
               onPressed: () => _openFilters(context))
         ],
       ),
-      body: PaginatedTalent(),
+      body: PaginatedTalent(launchURL: _launchURL),
     );
   }
 }
@@ -47,7 +69,7 @@ class PaginatedTalent extends StatefulWidget {
 
 class _PaginatedTalentState extends State<PaginatedTalent>
     with AutomaticKeepAliveClientMixin {
-  final _pagingController = PagingController<int, Item>(
+  final _pagingController = PagingController<int, ReusltItem>(
     firstPageKey: 1,
   );
   // String nextPageToken = "";
@@ -67,8 +89,8 @@ class _PaginatedTalentState extends State<PaginatedTalent>
 
       var jsonString = convert.utf8.decode(response.bodyBytes);
 
-      var newPage = List<Item>.from(
-          convert.json.decode(jsonString).map((x) => Item.fromJson(x)));
+      var newPage = List<ReusltItem>.from(
+          convert.json.decode(jsonString).map((x) => ReusltItem.fromJson(x)));
 
       // setState(() {
       //   nextPageToken = newPage.nextPageToken;
@@ -119,7 +141,7 @@ class _PaginatedTalentState extends State<PaginatedTalent>
         child: PagedListView.separated(
           // primary: false,
           // shrinkWrap: true,
-          builderDelegate: PagedChildBuilderDelegate<Item>(
+          builderDelegate: PagedChildBuilderDelegate<ReusltItem>(
             itemBuilder: (context, itemVid, index) =>
                 GenericListItem(itemYt: itemVid, launchURL: widget.launchURL),
             firstPageErrorIndicatorBuilder: (context) => Container(
