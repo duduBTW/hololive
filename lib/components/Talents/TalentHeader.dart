@@ -19,6 +19,7 @@ class NetworkingPageHeader implements SliverPersistentHeaderDelegate {
     this.minExtent,
     @required this.maxExtent,
   });
+
   final Talents talent;
   final double minExtent;
   final double maxExtent;
@@ -54,6 +55,135 @@ class NetworkingPageHeader implements SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
+    buildList() {
+      return Container(
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: <Widget>[
+            Text(
+              "One day, Ina'nis picked up a strange book and then started to gain the power of controlling tentacles. To her, tentacles are just a part in her ordinary life; it has never been a big deal for her.",
+              style: TextStyle(
+                height: 1.5,
+                color: Theme.of(context).primaryColor,
+                fontSize: 12,
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Text(
+              "However, her girly mind does want to get them dressed up and stay pretty. After gaining power, she started hearing Ancient Whispers and Revelations. Hence, she began her VTuber activities to deliver random sanity checks on humanity, as an ordinary girl.",
+              style: TextStyle(
+                height: 1.5,
+                color: Theme.of(context).primaryColor,
+                fontSize: 12,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    "Debut date",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Text(
+                    "Septemb2er 13, 2020",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor, fontSize: 14),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    "Height",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Text(
+                    "157 cm",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor, fontSize: 14),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    "Birthday",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Text(
+                    "May 20th",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor, fontSize: 14),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    "Fanbase name",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Text(
+                    "TentaCultists",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor, fontSize: 14),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
+      );
+    }
+
     print(shrinkOffset);
     return Container(
         child: Row(

@@ -1,6 +1,7 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hololive/model/ResultItem.dart';
 import 'package:hololive/model/Talents.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
@@ -51,7 +52,7 @@ class PaginatedTalent extends StatefulWidget {
 
 class _PaginatedTalentState extends State<PaginatedTalent>
     with AutomaticKeepAliveClientMixin {
-  final _pagingController = PagingController<int, Item>(
+  final _pagingController = PagingController<int, ReusltItem>(
     firstPageKey: 1,
   );
   // String nextPageToken = "";
@@ -71,8 +72,8 @@ class _PaginatedTalentState extends State<PaginatedTalent>
 
       var jsonString = convert.utf8.decode(response.bodyBytes);
 
-      var newPage = List<Item>.from(
-          convert.json.decode(jsonString).map((x) => Item.fromJson(x)));
+      var newPage = List<ReusltItem>.from(
+          convert.json.decode(jsonString).map((x) => ReusltItem.fromJson(x)));
 
       // setState(() {
       //   nextPageToken = newPage.nextPageToken;
@@ -123,12 +124,9 @@ class _PaginatedTalentState extends State<PaginatedTalent>
         child: PagedListView.separated(
           // primary: false,
           // shrinkWrap: true,
-          builderDelegate: PagedChildBuilderDelegate<Item>(
+          builderDelegate: PagedChildBuilderDelegate<ReusltItem>(
             itemBuilder: (context, itemVid, index) =>
-                // GenericListItem(itemYt: itemVid, launchURL: widget.launchURL),
-                Container(
-              child: Text("Teste"),
-            ),
+                GenericListItem(item: itemVid, launchURL: widget.launchURL),
             firstPageErrorIndicatorBuilder: (context) => Container(
               height: 100,
               width: 100,

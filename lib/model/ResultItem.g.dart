@@ -22,21 +22,19 @@ Map<String, dynamic> _$ImagePropToJson(ImageProp instance) => <String, dynamic>{
 
 ReusltItem _$ReusltItemFromJson(Map<String, dynamic> json) {
   return ReusltItem(
-    json['resultItemType'] as String,
     json['id'] as String,
-    json['image'] == null
-        ? null
-        : ImageProp.fromJson(json['image'] as Map<String, dynamic>),
     json['title'] as String,
+    json['image'] as String,
     json['date'] == null ? null : DateTime.parse(json['date'] as String),
+    json['type'] as int,
   );
 }
 
 Map<String, dynamic> _$ReusltItemToJson(ReusltItem instance) =>
     <String, dynamic>{
-      'resultItemType': instance.resultItemType,
       'id': instance.id,
       'title': instance.title,
+      'image': instance.image,
+      'type': instance.type,
       'date': instance.date?.toIso8601String(),
-      'image': instance.image?.toJson(),
     };

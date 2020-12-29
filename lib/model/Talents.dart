@@ -7,9 +7,11 @@ class Talents {
   final Color color;
   final Color colorSecond;
   final String channelId;
+  final String twitterName;
 
   Talents(
       {this.image,
+      this.twitterName,
       this.banner,
       @required this.name,
       @required this.color,

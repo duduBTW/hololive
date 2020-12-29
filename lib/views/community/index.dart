@@ -18,7 +18,7 @@ class CommynityScreen extends StatelessWidget {
   void _openFilters(context) =>
       Navigator.of(context).pushNamed('/community/filters');
 
-  _launchURL(String id) async {
+  _launchURL(ReusltItem item) async {
     // if (Platform.isIOS) {
     //   if (await canLaunch('youtube://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw')) {
     //     await launch('youtube://www.youtube.com/channel/UCwXdFgeE9KYzlDdR7TG9cMw', forceSafariVC: false);
@@ -30,7 +30,22 @@ class CommynityScreen extends StatelessWidget {
     //     }
     //   }
     // } else {
-    final url = 'https://www.reddit.com/r/Hololive/comments/$id';
+    String url;
+
+    print('---------------');
+    print(item);
+
+    // switch (item.type) {
+    //   case 1:
+    //     url = 'https://www.youtube.com/watch?v=${item.id}';
+    //     break;
+    //   case 1:
+    //     url = 'https://www.reddit.com/r/Hololive/comments/${item.id}';
+
+    //     break;
+    //   default:
+    // }
+
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -143,7 +158,7 @@ class _PaginatedTalentState extends State<PaginatedTalent>
           // shrinkWrap: true,
           builderDelegate: PagedChildBuilderDelegate<ReusltItem>(
             itemBuilder: (context, itemVid, index) =>
-                GenericListItem(itemYt: itemVid, launchURL: widget.launchURL),
+                GenericListItem(item: itemVid, launchURL: widget.launchURL),
             firstPageErrorIndicatorBuilder: (context) => Container(
               height: 100,
               width: 100,

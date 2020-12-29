@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hololive/model/Talents.dart';
-import 'package:hololive/views/TalentItemNew.dart';
+import 'package:hololive/views/talent/item.dart';
 
 class TalentsScreen extends StatefulWidget {
   @override
@@ -18,6 +18,7 @@ class _TalentsScreenState extends State<TalentsScreen>
         color: Color(0xFF50413D),
         colorSecond: Color(0xFFD6A99A),
         name: "Amelia Watson",
+        twitterName: "watsonameliaEN",
         banner:
             "https://yt3.ggpht.com/-7bdk5QyCEcy8DcCAwxFqjA3VX1WnMJKFg6mhVCqnL6z4S0boWQ1JkIgyCGXN8amRnYdQNkn",
         image:
@@ -39,6 +40,7 @@ class _TalentsScreenState extends State<TalentsScreen>
         channelId: "UCHsx4Hqa-1ORjQTh9TYDhww",
         color: Color(0xFF8B3418),
         name: 'Takanashi Kiara',
+        twitterName: 'takanashikiara',
         image:
             "https://firebasestorage.googleapis.com/v0/b/hololive-6a02e.appspot.com/o/kiara.jpeg?alt=media&token=c20cc81b-de00-41f3-99fa-712db5e7b0b0"),
     Talents(
